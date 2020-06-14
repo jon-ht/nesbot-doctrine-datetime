@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+
+  nginx:
+    ports:
+      - "80:80"
+
+  php:
+    ports:
+      - "2323:22"
+    # Allows to debug php script run inside PHP container
+    environment:
+      PHP_IDE_CONFIG: serverName=nestbot-doctrine-datetime.local
+
+  mysql:
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
